@@ -9,6 +9,8 @@ parameters:
   collectionsBasePath: "."
   collectionsRecipes:  # A list of recipes names
     - name: ""
+  # !! IF YOU OVERRIDE THE FOLLOWING VALUES YOU ARE PROBALBY DOING SOMETHING WRONG !!
+
 
 jobs:
 - ${{ if ne(parameters.appleClangVersions, '') }}:
@@ -116,7 +118,6 @@ jobs:
           Start-Process -NoNewWindow cmd.exe '/c (del /f/s/q "C:\Program Files\dotnet\sdk\" > nul) && (rmdir /S /Q "C:\Program Files\dotnet\sdk\")' 
         }
         $rootDir = $pwd.path
-        ls
         cd $env:CONAN_RECIPE_DIRECTORY
         python ('{0}\build.py' -f $rootDir)
       env:
