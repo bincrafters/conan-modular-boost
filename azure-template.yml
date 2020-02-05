@@ -6,8 +6,8 @@ parameters:
   appleClangVersions: ""  # Possible values: "10", "" (for no Apple Clang build jobs)
   splitByBuildTypes: "false"  # Possible values: "false", "true"
   requireMoreDiskSpace: "false" # Possible values: "false", "true" - Deletes the entire Java stack for Windows images
-  collectionsBasePath: "."
-  collectionsRecipes:  # A list of recipes names
+  collectionsBasePath: "." # The path to where the recipe(s) is/are
+  collectionsRecipes:  # A list of directories which each contains a single recipe
     - name: ""
   # !!! IF YOU OVERRIDE THE FOLLOWING VALUES YOU ARE PROBABLY DOING SOMETHING WRONG !!!
   vsVersionsMapping:
@@ -141,12 +141,12 @@ jobs:
               ${{ if contains(parameters.vsVersions, vs.version) }}:
                 VS ${{ vs.name }} Release ${{ recipe.name }}:
                   AZP_BUILD_WORKER_IMAGE: ${{ vs.image }}
-                  CONAN_VISUAL_VERSIONS: ${{ vs.name }}
+                  CONAN_VISUAL_VERSIONS: ${{ vs.version }}
                   CONAN_BUILD_TYPES: Release
                   CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
                 VS ${{ vs.name }} Debug ${{ recipe.name }}:
                   AZP_BUILD_WORKER_IMAGE: ${{ vs.image }}
-                  CONAN_VISUAL_VERSIONS: ${{ vs.name }}
+                  CONAN_VISUAL_VERSIONS: ${{ vs.version }}
                   CONAN_BUILD_TYPES: Debug
                   CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
           ${{ if ne(parameters.splitByBuildTypes, 'true') }}:
@@ -154,5 +154,5 @@ jobs:
               ${{ if contains(parameters.vsVersions, vs.version) }}:
                 VS ${{ vs.name }} ${{ recipe.name }}:
                   AZP_BUILD_WORKER_IMAGE: ${{ vs.image }}
-                  CONAN_VISUAL_VERSIONS: ${{ vs.name }}
+                  CONAN_VISUAL_VERSIONS: ${{ vs.version }}
                   CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
