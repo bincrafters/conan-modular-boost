@@ -1,0 +1,319 @@
+DEP_INCLUDES = {{{deps.include_paths}}} ;
+LIBRARIES = {{{libraries}}} ;
+
+import path ;
+rule patch_references ( references * )
+{
+    local result ;
+    for ref in $(references)
+    {
+        if [ MATCH "([/]boost[/][/])" : $(ref) ]
+        {
+            ref = [ MATCH "(.*)[/]boost[/][/](.*)" : $(ref) ] ;
+            ref = $(ref[1])/boost/$(ref[2]) ;
+        }
+        else if [ MATCH "([.][.][/][.][.][/].*[/]build)[/][/]" : $(ref) ]
+        {
+            ref = [ MATCH "(.*)[.][.][/][.][.][/](.*)[/]build[/][/](.*)" : $(ref) ] ;
+            ref = $(ref[1])/boost/$(ref[2])//$(ref[3]) ;
+        }
+        else if [ MATCH "([.][.][/][.][.][/].*[/]build)" : $(ref) ]
+        {
+            ref = [ MATCH "(.*)[.][.][/][.][.][/](.*)[/]build" : $(ref) ] ;
+            ref = $(ref[1])/boost/$(ref[2]) ;
+        }
+        else if [ MATCH "([.][.][/][.][.][/][a-z]+[/])" : $(ref) ]
+        {
+            ref = [ MATCH "[.][.][/][.][.][/](.*)" : $(ref) ] ;
+            ref = $(ref[1]) ;
+        }
+        else if $(HERE) && ! $(ref:G) && ! [ path.exists [ path.native $(ref) ] ]
+        {
+            local relative-ref = [ path.relative $(ref) $(HERE) : no-error ] ;
+            local library-ref = [ MATCH "([^/]+)[/](.*)" : $(relative-ref) ] ;
+            if $(LIBRARY_DIR($(library-ref[1])))
+            {
+                ref = $(LIBRARY_DIR($(library-ref[1])))/$(library-ref[2]) ;
+            }
+            else if $(relative-ref) && $(relative-ref) != "not-a-child"
+            {
+                ref = $(relative-ref) ;
+            }
+        }
+        result += $(ref) ;
+    }
+    return $(result) ;
+}
+
+import modules ;
+rule modules_import ( module-names + : rules-opt * : rename-opt * )
+{
+    for local module-name in [ patch_references $(module-names) ]
+    {
+        local library-module = [ MATCH "([^/]+)[/](.*)" : $(module-name) ] ;
+        if $(LIBRARY_DIR($(library-module[1])))
+        {
+            local saved_b2_path = [ modules.peek : BOOST_BUILD_PATH ] ;
+            modules.poke : BOOST_BUILD_PATH : $(LIBRARY_DIR($(library-module[1]))) $(saved_b2_path) ;
+            modules.call-in [ CALLER_MODULE ] :
+                __modules_import__ $(library-module[2])
+                    : $(rules-opt) : $(rename-opt) ;
+            modules.poke : BOOST_BUILD_PATH : $(saved_b2_path) ;
+        }
+        else
+        {
+            modules.call-in [ CALLER_MODULE ] :
+                __modules_import__ $(module-name) : $(rules-opt) : $(rename-opt) ;
+        }
+    }
+}
+IMPORT modules : import : : __modules_import__ ;
+IMPORT $(__name__) : modules_import : modules : import ;
+EXPORT modules : import ;
+
+if NT = [ modules.peek : OS ]
+{
+    rule path_native_nt ( path )
+    {
+        local native = [ __path_native_nt__ $(path) ] ;
+        if [ path.is-rooted $(path) ]
+        {
+            native = [ SHELL "short_path \"$(native)\"" ] ;
+            native = [ MATCH "([^
+]*)" : $(native) ] ;
+        }
+        return $(native) ;
+    }
+    IMPORT path : native-NT : : __path_native_nt__ ;
+    IMPORT $(__name__) : path_native_nt : path : native ;
+    EXPORT path : native ;
+}
+
+import project ;
+rule project_find ( name : current-location )
+{
+    return [ modules.call-in [ CALLER_MODULE ] :
+        __project_find__ [ patch_references $(name) ] : $(current-location)
+        ] ;
+}
+IMPORT project : find : : __project_find__ ;
+IMPORT $(__name__) : project_find : project : find ;
+EXPORT project : find ;
+rule project_load ( jamfile-location : synthesize ? )
+{
+    return [ modules.call-in [ CALLER_MODULE ] :
+        __project_load__ [ patch_references $(jamfile-location) ] : $(synthesize)
+        ] ;
+}
+IMPORT project : load : : __project_load__ ;
+IMPORT $(__name__) : project_load : project : load ;
+EXPORT project : load ;
+
+import generate ;
+import print ;
+import build-system ;
+import targets ;
+import path ;
+import feature ;
+import boostcpp ;
+import os ;
+import regex ;
+
+HERE = [ path.parent [ path.root [ path.make [ modules.binding $(__name__) ] ] [ path.pwd ] ] ] ;
+
+path-constant BOOST_ROOT : . ;
+constant BOOST_VERSION : {{{boost_version}}} ;
+constant BOOST_JAMROOT_MODULE : $(__name__) ;
+
+boostcpp.set-version $(BOOST_VERSION) ;
+
+local LIBPATH = {{{libpath}}} ;
+
+project boost
+:   requirements
+    <define>BOOST_ALL_NO_LIB=1
+    <tag>@$(__name__).tag
+    <link>shared,<runtime-link>static:<build>no
+    <include>$(DEP_INCLUDES)
+    <include>$(LIBRARIES)/include
+    <target-os>darwin:<cxxflags>-std=c++11
+    <target-os>darwin:<linkflags>-std=c++11
+    <library-path>$(LIBPATH)
+    <threadapi>{{{threadapi}}}
+    # This is a terrible hack around a possible b2 bug that prevents the
+    # link-flags specified in usage requirements of /python//python_for_extensions
+    # from getting applied.
+    <link>shared,<target-os>darwin,<toolset>clang:<linkflags>"-undefined dynamic_lookup"
+    {{{libcxx}}}
+    {{{cxxstd}}}
+    {{{cxxabi}}}
+    {{{arch_flags}}}
+    {{{isysroot}}}
+    {{{os_version}}}
+    {{{fpic}}}
+    {{{profile_flags}}}
+:   build-dir bin
+:   default-build {{{variant}}}
+    <target-os>{{{os}}}
+    <address-model>{{{address_model}}}
+    <architecture>{{{architecture}}}
+    <toolset>{{{toolset}}}
+    <link>{{{link}}}
+    <runtime-link>{{{runtime_link}}}
+    <threading>{{{threading}}}
+;
+
+rule tag ( name : type ? : property-set )
+{
+    return [ boostcpp.tag $(name) : $(type) : $(property-set) ] ;
+}
+
+rule python-tag ( name : type ? : property-set )
+{
+    return [ boostcpp.python-tag $(name) : $(type) : $(property-set) ] ;
+}
+
+rule boost-install ( libraries * )
+{
+    # Intentional no-op.
+}
+
+rule boost-lib ( name : sources * : requirements * : default-build * : usage-requirements * )
+{
+    name = boost_$(name) ;
+    lib $(name) : $(sources) : $(requirements) <link>shared:<define>$(name:U)_DYN_LINK=1 : $(default-build) : $(usage-requirements) ;
+}
+
+module boostcpp
+{
+    IMPORT alias : alias : boostcpp : __alias__ ;
+    rule alias ( name : sources * : requirements * : default-build * :
+        usage-requirements * )
+    {
+        local LIBRARIES = {{{libraries}}} ;
+        if $(sources) in libs/$(LIBRARIES)/build { sources = [ MATCH libs/(.*) : $(sources) ] ; }
+        return [ __alias__ $(name) : $(sources) : $(requirements)
+            : $(default-build) : $(usage-requirements) ] ;
+    }
+}
+
+rule lib_target (
+    name : sources * : requirements * : default-build * : usage-requirements * )
+{
+    sources = [ patch_references $(sources) ] ;
+    requirements = [ patch_references $(requirements) ] ;
+    usage-requirements = [ patch_references $(usage-requirements) ] ;
+    local caller = [ CALLER_MODULE ] ;
+    local library = [ MATCH "($(LIBRARIES_BUILD:J=|))" : $(name) ] ;
+    if $(library)
+    {
+        local libraries = [ regex.transform $(usage-requirements) : "(.*[<]library[>]/boost/.*)" ] ;
+        LIBRARY_USAGE($(library)) = $(libraries) ;
+    }
+    # ECHO @@@@ LIB $(caller) $(name) @ $(sources) @ $(requirements)
+    #     @ $(default-build) @ $(usage-requirements) <define>CONAN_LIB_BUILD=$(library)
+    #     >>> $(LIBRARY_USAGE($(library))) ;
+    patch_conditionals $(caller) $(name) : $(requirements) ;
+    return [ modules.call-in $(caller) :
+        __lib_target__ $(name) : $(sources) : $(requirements)
+            : $(default-build) : $(usage-requirements) <define>CONAN_LIB_BUILD=$(library)
+        ] ;
+}
+IMPORT : lib : : __lib_target__ ;
+IMPORT $(__name__) : lib_target : : lib ;
+
+rule patch_conditionals ( caller name : requirements * )
+{
+    for local call in [ MATCH @(.*) : [ feature.get-values <conditional> : $(requirements) ] ]
+    {
+        if ! [ MATCH "(.*)[@.](.*)" : $(call) ]
+        {
+            local hook_mod = [ MD5 hook_$(caller)_$(call) ] ;
+            local orig_caller = $(caller) ;
+            local orig_call = __$(call)_call__ ;
+            if ! [ modules.peek $(hook_mod) : .orig_call ]
+            {
+                modules.poke $(hook_mod) : .orig_caller : $(orig_caller) ;
+                modules.poke $(hook_mod) : .orig_call : $(orig_call) ;
+                module $(hook_mod)
+                {
+                    rule __hook__ ( properties * )
+                    {
+                        properties = [ modules.call-in $(.orig_caller) : $(.orig_call) $(properties) ] ;
+                        properties = [ patch_references $(properties) ] ;
+                        return $(properties) ;
+                    }
+                }
+                IMPORT $(caller) : $(call) : $(orig_caller) : $(orig_call) ;
+                IMPORT $(hook_mod) : __hook__ : $(caller) : $(call) ;
+                IMPORT $(hook_mod) : __hook__ : $(caller) : $(caller).$(call) ;
+                IMPORT $(__name__) : patch_references : $(hook_mod) : patch_references ;
+            }
+        }
+    }
+}
+
+{{{deps_info}}}
+
+project.load-used-projects $(__name__) ;
+.used-projects = ;
+
+feature.feature library-name : : free incidental ;
+
+rule export-lib-jamroot ( targets * : sources * : properties * )
+{
+    local library = [ feature.get-values <library-name> : $(properties) ] ;
+    print.output $(targets[1]) ;
+    print.text "import project ;" ;
+    print.text "project /conan/$(library) ;" ;
+    local dollar = "\$" ;
+    local usage = "$(LIBRARY_USAGE($(library)):J= )" ;
+    print.text "project.register-id /boost/$(library) : $(dollar)(__name__) ;" ;
+    print.text "local usage = $(usage:E=) ;" ;
+    #print.text "lib boost_$(library) : : <name>boost_$(library) <search>. : : $(usage:E=) ;" ;
+    print.text "" ;
+}
+
+LIBRARIES_BUILD = ;
+for local library in $(LIBRARIES)
+{
+    if [ path.exists $(library)/build ]
+    {
+        LIBRARIES_BUILD += $(library) ;
+        use-project /boost/$(library) : $(library)/build ;
+        make $(library)-lib/jamroot.jam :
+            : @export-lib-jamroot
+            : <library-name>$(library) ;
+        explicit $(library)-lib/jamroot.jam ;
+
+        install $(library)-lib
+            : /boost/$(library)
+            : <location>$(library)/lib
+              <install-dependencies>on <install-type>LIB
+              <install-no-version-symlinks>on ;
+        explicit $(library)-lib ;
+        install $(library)-jamroot
+            : $(library)-lib/jamroot.jam
+            : <location>$(library)/lib ;
+        explicit $(library)-jamroot ;
+
+        alias $(library)-build
+            : $(library)-lib $(library)-jamroot ;
+        explicit $(library)-build ;
+    }
+}
+
+boostcpp.declare-targets $(LIBRARIES_BUILD) ;
+
+rule post-build ( ok ? )
+{
+    if forward in [ modules.peek : top-level-targets ]
+    {
+        if $(ok)
+        {
+            ECHO "The {{{name}}} C++ Library was successfully built!" ;
+        }
+    }
+}
+IMPORT $(__name__) : post-build : : $(__name__).post-build ;
+build-system.set-post-build-hook $(__name__).post-build ;

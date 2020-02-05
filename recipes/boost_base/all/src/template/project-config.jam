@@ -1,0 +1,63 @@
+import feature ;
+if ! {{{toolset}}} in [ feature.values <toolset> ]
+{
+    using {{{toolset}}} : {{{toolset_version}}} : "{{{toolset_exec}}}" ;
+}
+local zlib_lib_paths = {{{zlib_lib_paths}}} ;
+local zlib_include_paths = {{{zlib_include_paths}}} ;
+if $(zlib_include_paths)
+{
+    using zlib : : <include>$(zlib_include_paths) <search>$(zlib_lib_paths) ;
+}
+else
+{
+    modules.poke : NO_ZLIB : 1 ;
+}
+local bzip2_lib_paths = {{{bzip2_lib_paths}}} ;
+local bzip2_include_paths = {{{bzip2_include_paths}}} ;
+if $(bzip2_include_paths)
+{
+    using bzip2 : : <include>$(bzip2_include_paths) <search>$(bzip2_lib_paths) ;
+}
+else
+{
+    modules.poke : NO_BZIP2 : 1 ;
+}
+local lzma_lib_paths = {{{lzma_lib_paths}}} ;
+local lzma_include_paths = {{{lzma_include_paths}}} ;
+local lzma_name = {{{lzma_name}}} ;
+if $(lzma_include_paths)
+{
+    using lzma : : <include>$(lzma_include_paths) <search>$(lzma_lib_paths) <name>$(lzma_name) ;
+}
+else
+{
+    modules.poke : NO_LZMA : 1 ;
+}
+local zstd_lib_paths = {{{zstd_lib_paths}}} ;
+local zstd_include_paths = {{{zstd_include_paths}}} ;
+local zstd_name = {{{zstd_name}}} ;
+if $(zstd_include_paths)
+{
+    using zstd : : <include>$(zstd_include_paths) <search>$(zstd_lib_paths) <name>$(zstd_name) ;
+}
+else
+{
+    modules.poke : NO_ZSTD : 1 ;
+}
+local python_exec = {{{python_exec}}} ;
+local python_include = {{{python_include}}} ;
+local python_lib = {{{python_lib}}} ;
+if $(python_exec)
+{
+    using python : {{{python_version}}} : $(python_exec) : $(python_include) : $(python_lib) ;
+}
+local mpicxx = "{{{mpicxx}}}" ;
+if $(mpicxx) = "default" || $(mpicxx) = ""
+{
+    using mpi ;
+}
+else if $(mpicxx)
+{
+    using mpi : $(mpicxx) ;
+}

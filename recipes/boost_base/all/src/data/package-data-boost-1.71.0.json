@@ -1,0 +1,2970 @@
+{
+  "accumulators": {
+    "b2_requires": [
+      "array",
+      "assert",
+      "circular_buffer",
+      "concept_check",
+      "config",
+      "core",
+      "fusion",
+      "iterator",
+      "mpl",
+      "numeric_conversion",
+      "numeric_ublas",
+      "parameter",
+      "preprocessor",
+      "range",
+      "serialization",
+      "static_assert",
+      "throw_exception",
+      "tuple",
+      "type_traits",
+      "typeof"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "accumulators"
+    ],
+    "lib_short_names": [
+      "accumulators"
+    ],
+    "name": "accumulators",
+    "source_only_deps": []
+  },
+  "algorithm": {
+    "b2_requires": [
+      "array",
+      "assert",
+      "bind",
+      "concept_check",
+      "config",
+      "core",
+      "exception",
+      "function",
+      "iterator",
+      "mpl",
+      "range",
+      "regex",
+      "static_assert",
+      "throw_exception",
+      "tuple",
+      "type_traits",
+      "unordered"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "algorithm"
+    ],
+    "lib_short_names": [
+      "algorithm"
+    ],
+    "name": "algorithm",
+    "source_only_deps": []
+  },
+  "align": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "static_assert"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "align"
+    ],
+    "lib_short_names": [
+      "align"
+    ],
+    "name": "align",
+    "source_only_deps": []
+  },
+  "any": {
+    "b2_requires": [
+      "config",
+      "core",
+      "static_assert",
+      "throw_exception",
+      "type_index",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "any"
+    ],
+    "lib_short_names": [
+      "any"
+    ],
+    "name": "any",
+    "source_only_deps": []
+  },
+  "array": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "static_assert",
+      "throw_exception"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "array"
+    ],
+    "lib_short_names": [
+      "array"
+    ],
+    "name": "array",
+    "source_only_deps": []
+  },
+  "asio": {
+    "b2_requires": [
+      "array",
+      "assert",
+      "bind",
+      "chrono",
+      "config",
+      "core",
+      "coroutine",
+      "date_time",
+      "function",
+      "regex",
+      "smart_ptr",
+      "system",
+      "throw_exception",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "asio"
+    ],
+    "lib_short_names": [
+      "asio"
+    ],
+    "name": "asio",
+    "source_only_deps": []
+  },
+  "assert": {
+    "b2_requires": [
+      "config"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "assert"
+    ],
+    "lib_short_names": [
+      "assert"
+    ],
+    "name": "assert",
+    "source_only_deps": []
+  },
+  "assign": {
+    "b2_requires": [
+      "array",
+      "config",
+      "core",
+      "move",
+      "mpl",
+      "preprocessor",
+      "ptr_container",
+      "range",
+      "static_assert",
+      "throw_exception",
+      "tuple",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "assign"
+    ],
+    "lib_short_names": [
+      "assign"
+    ],
+    "name": "assign",
+    "source_only_deps": []
+  },
+  "atomic": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "atomic"
+    ],
+    "name": "atomic",
+    "source_only_deps": []
+  },
+  "beast": {
+    "b2_requires": [
+      "asio",
+      "assert",
+      "bind",
+      "config",
+      "container",
+      "core",
+      "endian",
+      "intrusive",
+      "logic",
+      "mp11",
+      "optional",
+      "smart_ptr",
+      "static_assert",
+      "system",
+      "throw_exception",
+      "type_traits",
+      "utility",
+      "winapi"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "beast"
+    ],
+    "lib_short_names": [
+      "beast"
+    ],
+    "name": "beast",
+    "source_only_deps": []
+  },
+  "bimap": {
+    "b2_requires": [
+      "cycle_group_a"
+    ],
+    "cycle_group": "cycle_group_a",
+    "header_only_libs": [
+      "bimap"
+    ],
+    "lib_short_names": [
+      "bimap"
+    ],
+    "name": "bimap",
+    "source_only_deps": []
+  },
+  "bind": {
+    "b2_requires": [
+      "config",
+      "core"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "bind"
+    ],
+    "lib_short_names": [
+      "bind"
+    ],
+    "name": "bind",
+    "source_only_deps": []
+  },
+  "callable_traits": {
+    "b2_requires": [],
+    "cycle_group": null,
+    "header_only_libs": [
+      "callable_traits"
+    ],
+    "lib_short_names": [
+      "callable_traits"
+    ],
+    "name": "callable_traits",
+    "source_only_deps": []
+  },
+  "chrono": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "integer",
+      "move",
+      "mpl",
+      "predef",
+      "ratio",
+      "static_assert",
+      "system",
+      "throw_exception",
+      "type_traits",
+      "typeof",
+      "utility",
+      "winapi"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "chrono"
+    ],
+    "name": "chrono",
+    "source_only_deps": []
+  },
+  "circular_buffer": {
+    "b2_requires": [
+      "assert",
+      "concept_check",
+      "config",
+      "core",
+      "move",
+      "static_assert",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "circular_buffer"
+    ],
+    "lib_short_names": [
+      "circular_buffer"
+    ],
+    "name": "circular_buffer",
+    "source_only_deps": []
+  },
+  "compatibility": {
+    "b2_requires": [],
+    "cycle_group": null,
+    "header_only_libs": [
+      "compatibility"
+    ],
+    "lib_short_names": [
+      "compatibility"
+    ],
+    "name": "compatibility",
+    "source_only_deps": []
+  },
+  "compute": {
+    "b2_requires": [
+      "algorithm",
+      "array",
+      "assert",
+      "chrono",
+      "config",
+      "core",
+      "filesystem",
+      "function",
+      "function_types",
+      "fusion",
+      "iterator",
+      "lexical_cast",
+      "mpl",
+      "optional",
+      "preprocessor",
+      "property_tree",
+      "proto",
+      "range",
+      "smart_ptr",
+      "static_assert",
+      "thread",
+      "throw_exception",
+      "tuple",
+      "type_traits",
+      "typeof",
+      "utility",
+      "uuid"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "compute"
+    ],
+    "lib_short_names": [
+      "compute"
+    ],
+    "name": "compute",
+    "source_only_deps": []
+  },
+  "concept_check": {
+    "b2_requires": [
+      "config",
+      "preprocessor",
+      "static_assert",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "concept_check"
+    ],
+    "lib_short_names": [
+      "concept_check"
+    ],
+    "name": "concept_check",
+    "source_only_deps": []
+  },
+  "config": {
+    "b2_requires": [],
+    "cycle_group": null,
+    "header_only_libs": [
+      "config"
+    ],
+    "lib_short_names": [
+      "config"
+    ],
+    "name": "config",
+    "source_only_deps": []
+  },
+  "container": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "container_hash",
+      "core",
+      "intrusive",
+      "move",
+      "static_assert",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "container"
+    ],
+    "name": "container",
+    "source_only_deps": []
+  },
+  "container_hash": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "detail",
+      "integer",
+      "static_assert",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "container_hash"
+    ],
+    "lib_short_names": [
+      "container_hash"
+    ],
+    "name": "container_hash",
+    "source_only_deps": []
+  },
+  "context": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "pool",
+      "predef",
+      "smart_ptr",
+      "thread"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "context"
+    ],
+    "name": "context",
+    "source_only_deps": []
+  },
+  "contract": {
+    "b2_requires": [
+      "any",
+      "assert",
+      "config",
+      "core",
+      "exception",
+      "function",
+      "function_types",
+      "mpl",
+      "optional",
+      "preprocessor",
+      "smart_ptr",
+      "static_assert",
+      "thread",
+      "type_traits",
+      "typeof",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "contract"
+    ],
+    "name": "contract",
+    "source_only_deps": []
+  },
+  "conversion": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "smart_ptr",
+      "throw_exception",
+      "type_traits",
+      "typeof"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "conversion"
+    ],
+    "lib_short_names": [
+      "conversion"
+    ],
+    "name": "conversion",
+    "source_only_deps": []
+  },
+  "convert": {
+    "b2_requires": [
+      "config",
+      "core",
+      "function_types",
+      "lexical_cast",
+      "math",
+      "mpl",
+      "optional",
+      "parameter",
+      "range",
+      "spirit",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "convert"
+    ],
+    "lib_short_names": [
+      "convert"
+    ],
+    "name": "convert",
+    "source_only_deps": []
+  },
+  "core": {
+    "b2_requires": [
+      "assert",
+      "config"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "core"
+    ],
+    "lib_short_names": [
+      "core"
+    ],
+    "name": "core",
+    "source_only_deps": []
+  },
+  "coroutine": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "context",
+      "core",
+      "exception",
+      "move",
+      "range",
+      "system",
+      "thread",
+      "throw_exception",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "coroutine"
+    ],
+    "name": "coroutine",
+    "source_only_deps": []
+  },
+  "coroutine2": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "context"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "coroutine2"
+    ],
+    "lib_short_names": [
+      "coroutine2"
+    ],
+    "name": "coroutine2",
+    "source_only_deps": []
+  },
+  "crc": {
+    "b2_requires": [
+      "array",
+      "config",
+      "integer",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "crc"
+    ],
+    "lib_short_names": [
+      "crc"
+    ],
+    "name": "crc",
+    "source_only_deps": []
+  },
+  "cycle_group_a": {
+    "b2_requires": [
+      "algorithm",
+      "any",
+      "array",
+      "assert",
+      "bind",
+      "concept_check",
+      "config",
+      "container_hash",
+      "conversion",
+      "core",
+      "detail",
+      "foreach",
+      "function",
+      "integer",
+      "iterator",
+      "lambda",
+      "lexical_cast",
+      "math",
+      "move",
+      "mpl",
+      "multi_index",
+      "numeric_conversion",
+      "optional",
+      "parameter",
+      "preprocessor",
+      "property_tree",
+      "random",
+      "range",
+      "serialization",
+      "smart_ptr",
+      "spirit",
+      "static_assert",
+      "throw_exception",
+      "tti",
+      "tuple",
+      "type_traits",
+      "typeof",
+      "unordered",
+      "utility",
+      "xpressive"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "bimap",
+      "disjoint_sets",
+      "property_map"
+    ],
+    "lib_short_names": [
+      "bimap",
+      "disjoint_sets",
+      "graph",
+      "mpi",
+      "property_map",
+      "python"
+    ],
+    "name": "cycle_group_a",
+    "source_only_deps": [
+      "regex"
+    ]
+  },
+  "cycle_group_b": {
+    "b2_requires": [
+      "algorithm",
+      "array",
+      "assert",
+      "atomic",
+      "bind",
+      "chrono",
+      "concept_check",
+      "config",
+      "container",
+      "container_hash",
+      "core",
+      "detail",
+      "endian",
+      "exception",
+      "filesystem",
+      "foreach",
+      "function",
+      "function_types",
+      "fusion",
+      "integer",
+      "intrusive",
+      "io",
+      "iterator",
+      "lambda",
+      "move",
+      "mp11",
+      "mpl",
+      "numeric_conversion",
+      "optional",
+      "phoenix",
+      "pool",
+      "predef",
+      "preprocessor",
+      "proto",
+      "range",
+      "rational",
+      "regex",
+      "smart_ptr",
+      "static_assert",
+      "system",
+      "throw_exception",
+      "tokenizer",
+      "tti",
+      "tuple",
+      "type_traits",
+      "typeof",
+      "unordered",
+      "utility",
+      "variant",
+      "winapi"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "dynamic_bitset",
+      "lexical_cast",
+      "multiprecision",
+      "spirit"
+    ],
+    "lib_short_names": [
+      "date_time",
+      "dynamic_bitset",
+      "iostreams",
+      "lexical_cast",
+      "locale",
+      "math",
+      "multiprecision",
+      "random",
+      "serialization",
+      "spirit",
+      "thread"
+    ],
+    "name": "cycle_group_b",
+    "source_only_deps": []
+  },
+  "date_time": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [],
+    "lib_short_names": [
+      "date_time"
+    ],
+    "name": "date_time",
+    "source_only_deps": []
+  },
+  "detail": {
+    "b2_requires": [
+      "config",
+      "core",
+      "preprocessor",
+      "static_assert",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "detail"
+    ],
+    "lib_short_names": [
+      "detail"
+    ],
+    "name": "detail",
+    "source_only_deps": []
+  },
+  "disjoint_sets": {
+    "b2_requires": [
+      "cycle_group_a"
+    ],
+    "cycle_group": "cycle_group_a",
+    "header_only_libs": [
+      "disjoint_sets"
+    ],
+    "lib_short_names": [
+      "disjoint_sets"
+    ],
+    "name": "disjoint_sets",
+    "source_only_deps": []
+  },
+  "dll": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "filesystem",
+      "function",
+      "move",
+      "mpl",
+      "predef",
+      "smart_ptr",
+      "spirit",
+      "static_assert",
+      "system",
+      "throw_exception",
+      "type_index",
+      "type_traits",
+      "winapi"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "dll"
+    ],
+    "lib_short_names": [
+      "dll"
+    ],
+    "name": "dll",
+    "source_only_deps": []
+  },
+  "dynamic_bitset": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [
+      "dynamic_bitset"
+    ],
+    "lib_short_names": [
+      "dynamic_bitset"
+    ],
+    "name": "dynamic_bitset",
+    "source_only_deps": []
+  },
+  "endian": {
+    "b2_requires": [
+      "config",
+      "core",
+      "predef",
+      "static_assert",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "endian"
+    ],
+    "lib_short_names": [
+      "endian"
+    ],
+    "name": "endian",
+    "source_only_deps": []
+  },
+  "exception": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "smart_ptr",
+      "throw_exception",
+      "tuple",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "exception"
+    ],
+    "name": "exception",
+    "source_only_deps": []
+  },
+  "fiber": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "context",
+      "core",
+      "filesystem",
+      "intrusive",
+      "predef",
+      "smart_ptr"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "fiber"
+    ],
+    "name": "fiber",
+    "source_only_deps": [
+      "algorithm",
+      "format"
+    ]
+  },
+  "filesystem": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "container_hash",
+      "core",
+      "detail",
+      "io",
+      "iterator",
+      "smart_ptr",
+      "system",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "filesystem"
+    ],
+    "name": "filesystem",
+    "source_only_deps": [
+      "winapi"
+    ]
+  },
+  "flyweight": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "container_hash",
+      "core",
+      "detail",
+      "interprocess",
+      "mpl",
+      "multi_index",
+      "parameter",
+      "preprocessor",
+      "serialization",
+      "smart_ptr",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "flyweight"
+    ],
+    "lib_short_names": [
+      "flyweight"
+    ],
+    "name": "flyweight",
+    "source_only_deps": []
+  },
+  "foreach": {
+    "b2_requires": [
+      "config",
+      "core",
+      "iterator",
+      "mpl",
+      "range",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "foreach"
+    ],
+    "lib_short_names": [
+      "foreach"
+    ],
+    "name": "foreach",
+    "source_only_deps": []
+  },
+  "format": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "optional",
+      "smart_ptr",
+      "throw_exception",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "format"
+    ],
+    "lib_short_names": [
+      "format"
+    ],
+    "name": "format",
+    "source_only_deps": []
+  },
+  "function": {
+    "b2_requires": [
+      "assert",
+      "bind",
+      "config",
+      "core",
+      "integer",
+      "preprocessor",
+      "throw_exception",
+      "type_index",
+      "type_traits",
+      "typeof"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "function"
+    ],
+    "lib_short_names": [
+      "function"
+    ],
+    "name": "function",
+    "source_only_deps": []
+  },
+  "function_types": {
+    "b2_requires": [
+      "config",
+      "core",
+      "detail",
+      "mpl",
+      "preprocessor",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "function_types"
+    ],
+    "lib_short_names": [
+      "function_types"
+    ],
+    "name": "function_types",
+    "source_only_deps": []
+  },
+  "functional": {
+    "b2_requires": [
+      "config",
+      "core",
+      "function",
+      "function_types",
+      "iterator",
+      "mpl",
+      "optional",
+      "preprocessor",
+      "type_traits",
+      "typeof",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "functional"
+    ],
+    "lib_short_names": [
+      "functional"
+    ],
+    "name": "functional",
+    "source_only_deps": []
+  },
+  "fusion": {
+    "b2_requires": [
+      "config",
+      "container_hash",
+      "core",
+      "function_types",
+      "mpl",
+      "preprocessor",
+      "static_assert",
+      "tuple",
+      "type_traits",
+      "typeof",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "fusion"
+    ],
+    "lib_short_names": [
+      "fusion"
+    ],
+    "name": "fusion",
+    "source_only_deps": []
+  },
+  "geometry": {
+    "b2_requires": [
+      "algorithm",
+      "array",
+      "assert",
+      "concept_check",
+      "config",
+      "container",
+      "core",
+      "function_types",
+      "fusion",
+      "integer",
+      "iterator",
+      "lexical_cast",
+      "math",
+      "move",
+      "mpl",
+      "multiprecision",
+      "numeric_conversion",
+      "polygon",
+      "qvm",
+      "range",
+      "rational",
+      "serialization",
+      "smart_ptr",
+      "static_assert",
+      "thread",
+      "throw_exception",
+      "tokenizer",
+      "tuple",
+      "type_traits",
+      "utility",
+      "variant"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "geometry"
+    ],
+    "lib_short_names": [
+      "geometry"
+    ],
+    "name": "geometry",
+    "source_only_deps": []
+  },
+  "gil": {
+    "b2_requires": [
+      "assert",
+      "concept_check",
+      "config",
+      "core",
+      "filesystem",
+      "integer",
+      "iterator",
+      "mpl",
+      "numeric_conversion",
+      "type_traits",
+      "variant"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "gil"
+    ],
+    "lib_short_names": [
+      "gil"
+    ],
+    "name": "gil",
+    "source_only_deps": []
+  },
+  "graph": {
+    "b2_requires": [
+      "cycle_group_a"
+    ],
+    "cycle_group": "cycle_group_a",
+    "header_only_libs": [],
+    "lib_short_names": [
+      "graph"
+    ],
+    "name": "graph",
+    "source_only_deps": []
+  },
+  "graph_parallel": {
+    "b2_requires": [
+      "assert",
+      "concept_check",
+      "config",
+      "container_hash",
+      "core",
+      "detail",
+      "disjoint_sets",
+      "dynamic_bitset",
+      "filesystem",
+      "foreach",
+      "function",
+      "graph",
+      "iterator",
+      "lexical_cast",
+      "mpi",
+      "mpl",
+      "optional",
+      "property_map",
+      "random",
+      "serialization",
+      "smart_ptr",
+      "static_assert",
+      "tuple",
+      "type_traits",
+      "variant"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "graph_parallel"
+    ],
+    "name": "graph_parallel",
+    "source_only_deps": []
+  },
+  "hana": {
+    "b2_requires": [
+      "config",
+      "core",
+      "fusion",
+      "mpl",
+      "tuple"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "hana"
+    ],
+    "lib_short_names": [
+      "hana"
+    ],
+    "name": "hana",
+    "source_only_deps": []
+  },
+  "heap": {
+    "b2_requires": [
+      "array",
+      "assert",
+      "bind",
+      "concept_check",
+      "config",
+      "intrusive",
+      "iterator",
+      "parameter",
+      "static_assert",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "heap"
+    ],
+    "lib_short_names": [
+      "heap"
+    ],
+    "name": "heap",
+    "source_only_deps": []
+  },
+  "histogram": {
+    "b2_requires": [
+      "assert",
+      "callable_traits",
+      "config",
+      "core",
+      "mp11",
+      "serialization",
+      "throw_exception",
+      "variant2"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "histogram"
+    ],
+    "lib_short_names": [
+      "histogram"
+    ],
+    "name": "histogram",
+    "source_only_deps": []
+  },
+  "hof": {
+    "b2_requires": [],
+    "cycle_group": null,
+    "header_only_libs": [
+      "hof"
+    ],
+    "lib_short_names": [
+      "hof"
+    ],
+    "name": "hof",
+    "source_only_deps": []
+  },
+  "icl": {
+    "b2_requires": [
+      "assert",
+      "concept_check",
+      "config",
+      "container",
+      "core",
+      "date_time",
+      "detail",
+      "iterator",
+      "move",
+      "mpl",
+      "range",
+      "rational",
+      "static_assert",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "icl"
+    ],
+    "lib_short_names": [
+      "icl"
+    ],
+    "name": "icl",
+    "source_only_deps": []
+  },
+  "integer": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "static_assert",
+      "throw_exception"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "integer"
+    ],
+    "lib_short_names": [
+      "integer"
+    ],
+    "name": "integer",
+    "source_only_deps": []
+  },
+  "interprocess": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "container",
+      "core",
+      "date_time",
+      "integer",
+      "intrusive",
+      "move",
+      "static_assert",
+      "type_traits",
+      "unordered",
+      "winapi"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "interprocess"
+    ],
+    "lib_short_names": [
+      "interprocess"
+    ],
+    "name": "interprocess",
+    "source_only_deps": []
+  },
+  "intrusive": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "container_hash",
+      "core",
+      "move",
+      "static_assert"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "intrusive"
+    ],
+    "lib_short_names": [
+      "intrusive"
+    ],
+    "name": "intrusive",
+    "source_only_deps": []
+  },
+  "io": {
+    "b2_requires": [
+      "config"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "io"
+    ],
+    "lib_short_names": [
+      "io"
+    ],
+    "name": "io",
+    "source_only_deps": []
+  },
+  "iostreams": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [],
+    "lib_short_names": [
+      "iostreams"
+    ],
+    "name": "iostreams",
+    "source_only_deps": []
+  },
+  "iterator": {
+    "b2_requires": [
+      "assert",
+      "concept_check",
+      "config",
+      "conversion",
+      "core",
+      "detail",
+      "function_types",
+      "fusion",
+      "mpl",
+      "optional",
+      "smart_ptr",
+      "static_assert",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "iterator"
+    ],
+    "lib_short_names": [
+      "iterator"
+    ],
+    "name": "iterator",
+    "source_only_deps": []
+  },
+  "lambda": {
+    "b2_requires": [
+      "bind",
+      "config",
+      "core",
+      "detail",
+      "iterator",
+      "mpl",
+      "preprocessor",
+      "tuple",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "lambda"
+    ],
+    "lib_short_names": [
+      "lambda"
+    ],
+    "name": "lambda",
+    "source_only_deps": []
+  },
+  "lexical_cast": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [
+      "lexical_cast"
+    ],
+    "lib_short_names": [
+      "lexical_cast"
+    ],
+    "name": "lexical_cast",
+    "source_only_deps": []
+  },
+  "local_function": {
+    "b2_requires": [
+      "config",
+      "mpl",
+      "preprocessor",
+      "scope_exit",
+      "type_traits",
+      "typeof",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "local_function"
+    ],
+    "lib_short_names": [
+      "local_function"
+    ],
+    "name": "local_function",
+    "source_only_deps": []
+  },
+  "locale": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [],
+    "lib_short_names": [
+      "locale"
+    ],
+    "name": "locale",
+    "source_only_deps": []
+  },
+  "lockfree": {
+    "b2_requires": [
+      "align",
+      "array",
+      "assert",
+      "atomic",
+      "config",
+      "core",
+      "integer",
+      "iterator",
+      "mpl",
+      "parameter",
+      "predef",
+      "static_assert",
+      "tuple",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "lockfree"
+    ],
+    "lib_short_names": [
+      "lockfree"
+    ],
+    "name": "lockfree",
+    "source_only_deps": []
+  },
+  "log": {
+    "b2_requires": [
+      "array",
+      "assert",
+      "atomic",
+      "bind",
+      "config",
+      "container",
+      "core",
+      "date_time",
+      "exception",
+      "filesystem",
+      "function_types",
+      "fusion",
+      "intrusive",
+      "iterator",
+      "lexical_cast",
+      "locale",
+      "move",
+      "mpl",
+      "optional",
+      "parameter",
+      "phoenix",
+      "predef",
+      "preprocessor",
+      "property_tree",
+      "proto",
+      "random",
+      "range",
+      "regex",
+      "smart_ptr",
+      "spirit",
+      "static_assert",
+      "system",
+      "thread",
+      "throw_exception",
+      "type_index",
+      "type_traits",
+      "utility",
+      "winapi",
+      "xpressive"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "log"
+    ],
+    "name": "log",
+    "source_only_deps": [
+      "align",
+      "asio",
+      "interprocess",
+      "io"
+    ]
+  },
+  "logic": {
+    "b2_requires": [
+      "config",
+      "core"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "logic"
+    ],
+    "lib_short_names": [
+      "logic"
+    ],
+    "name": "logic",
+    "source_only_deps": []
+  },
+  "math": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [],
+    "lib_short_names": [
+      "math"
+    ],
+    "name": "math",
+    "source_only_deps": []
+  },
+  "metaparse": {
+    "b2_requires": [
+      "config",
+      "mpl",
+      "predef",
+      "preprocessor",
+      "static_assert",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "metaparse"
+    ],
+    "lib_short_names": [
+      "metaparse"
+    ],
+    "name": "metaparse",
+    "source_only_deps": []
+  },
+  "move": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "static_assert"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "move"
+    ],
+    "lib_short_names": [
+      "move"
+    ],
+    "name": "move",
+    "source_only_deps": []
+  },
+  "mp11": {
+    "b2_requires": [],
+    "cycle_group": null,
+    "header_only_libs": [
+      "mp11"
+    ],
+    "lib_short_names": [
+      "mp11"
+    ],
+    "name": "mp11",
+    "source_only_deps": []
+  },
+  "mpi": {
+    "b2_requires": [
+      "cycle_group_a"
+    ],
+    "cycle_group": "cycle_group_a",
+    "header_only_libs": [],
+    "lib_short_names": [
+      "mpi"
+    ],
+    "name": "mpi",
+    "source_only_deps": []
+  },
+  "mpl": {
+    "b2_requires": [
+      "config",
+      "core",
+      "predef",
+      "preprocessor",
+      "static_assert",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "mpl"
+    ],
+    "lib_short_names": [
+      "mpl"
+    ],
+    "name": "mpl",
+    "source_only_deps": []
+  },
+  "msm": {
+    "b2_requires": [
+      "any",
+      "assert",
+      "bind",
+      "circular_buffer",
+      "config",
+      "core",
+      "function",
+      "fusion",
+      "mpl",
+      "parameter",
+      "phoenix",
+      "preprocessor",
+      "proto",
+      "serialization",
+      "tuple",
+      "type_traits",
+      "typeof"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "msm"
+    ],
+    "lib_short_names": [
+      "msm"
+    ],
+    "name": "msm",
+    "source_only_deps": []
+  },
+  "multi_array": {
+    "b2_requires": [
+      "array",
+      "assert",
+      "concept_check",
+      "config",
+      "core",
+      "functional",
+      "iterator",
+      "mpl",
+      "static_assert",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "multi_array"
+    ],
+    "lib_short_names": [
+      "multi_array"
+    ],
+    "name": "multi_array",
+    "source_only_deps": []
+  },
+  "multi_index": {
+    "b2_requires": [
+      "assert",
+      "bind",
+      "config",
+      "container_hash",
+      "core",
+      "foreach",
+      "integer",
+      "iterator",
+      "move",
+      "mpl",
+      "preprocessor",
+      "serialization",
+      "smart_ptr",
+      "static_assert",
+      "throw_exception",
+      "tuple",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "multi_index"
+    ],
+    "lib_short_names": [
+      "multi_index"
+    ],
+    "name": "multi_index",
+    "source_only_deps": []
+  },
+  "multiprecision": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [
+      "multiprecision"
+    ],
+    "lib_short_names": [
+      "multiprecision"
+    ],
+    "name": "multiprecision",
+    "source_only_deps": []
+  },
+  "numeric_conversion": {
+    "b2_requires": [
+      "config",
+      "conversion",
+      "core",
+      "mpl",
+      "preprocessor",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "numeric_conversion"
+    ],
+    "lib_short_names": [
+      "numeric_conversion"
+    ],
+    "name": "numeric_conversion",
+    "source_only_deps": []
+  },
+  "numeric_interval": {
+    "b2_requires": [
+      "config",
+      "detail",
+      "logic"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "numeric_interval"
+    ],
+    "lib_short_names": [
+      "numeric_interval"
+    ],
+    "name": "numeric_interval",
+    "source_only_deps": []
+  },
+  "numeric_odeint": {
+    "b2_requires": [
+      "array",
+      "assert",
+      "bind",
+      "compute",
+      "config",
+      "core",
+      "function",
+      "fusion",
+      "iterator",
+      "math",
+      "mpi",
+      "mpl",
+      "multi_array",
+      "numeric_ublas",
+      "preprocessor",
+      "range",
+      "static_assert",
+      "throw_exception",
+      "type_traits",
+      "units",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "numeric_odeint"
+    ],
+    "lib_short_names": [
+      "numeric_odeint"
+    ],
+    "name": "numeric_odeint",
+    "source_only_deps": []
+  },
+  "numeric_ublas": {
+    "b2_requires": [
+      "compute",
+      "concept_check",
+      "config",
+      "core",
+      "iterator",
+      "mpl",
+      "numeric_interval",
+      "range",
+      "serialization",
+      "smart_ptr",
+      "static_assert",
+      "type_traits",
+      "typeof"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "numeric_ublas"
+    ],
+    "lib_short_names": [
+      "numeric_ublas"
+    ],
+    "name": "numeric_ublas",
+    "source_only_deps": []
+  },
+  "optional": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "detail",
+      "move",
+      "predef",
+      "static_assert",
+      "throw_exception",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "optional"
+    ],
+    "lib_short_names": [
+      "optional"
+    ],
+    "name": "optional",
+    "source_only_deps": []
+  },
+  "outcome": {
+    "b2_requires": [
+      "config",
+      "exception",
+      "system",
+      "throw_exception"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "outcome"
+    ],
+    "lib_short_names": [
+      "outcome"
+    ],
+    "name": "outcome",
+    "source_only_deps": []
+  },
+  "parameter": {
+    "b2_requires": [
+      "config",
+      "core",
+      "function",
+      "fusion",
+      "mp11",
+      "mpl",
+      "optional",
+      "preprocessor",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "parameter"
+    ],
+    "lib_short_names": [
+      "parameter"
+    ],
+    "name": "parameter",
+    "source_only_deps": []
+  },
+  "parameter_python": {
+    "b2_requires": [
+      "mpl",
+      "parameter",
+      "preprocessor",
+      "python"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "parameter_python"
+    ],
+    "lib_short_names": [
+      "parameter_python"
+    ],
+    "name": "parameter_python",
+    "source_only_deps": []
+  },
+  "phoenix": {
+    "b2_requires": [
+      "assert",
+      "bind",
+      "config",
+      "core",
+      "function",
+      "fusion",
+      "mpl",
+      "predef",
+      "preprocessor",
+      "proto",
+      "range",
+      "smart_ptr",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "phoenix"
+    ],
+    "lib_short_names": [
+      "phoenix"
+    ],
+    "name": "phoenix",
+    "source_only_deps": []
+  },
+  "poly_collection": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "iterator",
+      "mp11",
+      "mpl",
+      "type_erasure",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "poly_collection"
+    ],
+    "lib_short_names": [
+      "poly_collection"
+    ],
+    "name": "poly_collection",
+    "source_only_deps": []
+  },
+  "polygon": {
+    "b2_requires": [
+      "config"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "polygon"
+    ],
+    "lib_short_names": [
+      "polygon"
+    ],
+    "name": "polygon",
+    "source_only_deps": []
+  },
+  "pool": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "integer",
+      "throw_exception",
+      "type_traits",
+      "winapi"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "pool"
+    ],
+    "lib_short_names": [
+      "pool"
+    ],
+    "name": "pool",
+    "source_only_deps": []
+  },
+  "predef": {
+    "b2_requires": [],
+    "cycle_group": null,
+    "header_only_libs": [
+      "predef"
+    ],
+    "lib_short_names": [
+      "predef"
+    ],
+    "name": "predef",
+    "source_only_deps": []
+  },
+  "preprocessor": {
+    "b2_requires": [],
+    "cycle_group": null,
+    "header_only_libs": [
+      "preprocessor"
+    ],
+    "lib_short_names": [
+      "preprocessor"
+    ],
+    "name": "preprocessor",
+    "source_only_deps": []
+  },
+  "process": {
+    "b2_requires": [
+      "algorithm",
+      "asio",
+      "config",
+      "core",
+      "filesystem",
+      "fusion",
+      "iterator",
+      "move",
+      "optional",
+      "system",
+      "tokenizer",
+      "type_index",
+      "winapi"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "process"
+    ],
+    "lib_short_names": [
+      "process"
+    ],
+    "name": "process",
+    "source_only_deps": []
+  },
+  "program_options": {
+    "b2_requires": [
+      "any",
+      "config",
+      "core",
+      "detail",
+      "function",
+      "iterator",
+      "lexical_cast",
+      "smart_ptr",
+      "static_assert",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "program_options"
+    ],
+    "name": "program_options",
+    "source_only_deps": [
+      "bind",
+      "tokenizer"
+    ]
+  },
+  "property_map": {
+    "b2_requires": [
+      "cycle_group_a"
+    ],
+    "cycle_group": "cycle_group_a",
+    "header_only_libs": [
+      "property_map"
+    ],
+    "lib_short_names": [
+      "property_map"
+    ],
+    "name": "property_map",
+    "source_only_deps": []
+  },
+  "property_tree": {
+    "b2_requires": [
+      "any",
+      "assert",
+      "bind",
+      "config",
+      "core",
+      "format",
+      "iterator",
+      "mpl",
+      "multi_index",
+      "optional",
+      "range",
+      "serialization",
+      "static_assert",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "property_tree"
+    ],
+    "lib_short_names": [
+      "property_tree"
+    ],
+    "name": "property_tree",
+    "source_only_deps": []
+  },
+  "proto": {
+    "b2_requires": [
+      "config",
+      "core",
+      "fusion",
+      "mpl",
+      "preprocessor",
+      "range",
+      "static_assert",
+      "type_traits",
+      "typeof",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "proto"
+    ],
+    "lib_short_names": [
+      "proto"
+    ],
+    "name": "proto",
+    "source_only_deps": []
+  },
+  "ptr_container": {
+    "b2_requires": [
+      "array",
+      "assert",
+      "circular_buffer",
+      "config",
+      "core",
+      "iterator",
+      "mpl",
+      "range",
+      "serialization",
+      "smart_ptr",
+      "static_assert",
+      "type_traits",
+      "unordered",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "ptr_container"
+    ],
+    "lib_short_names": [
+      "ptr_container"
+    ],
+    "name": "ptr_container",
+    "source_only_deps": []
+  },
+  "python": {
+    "b2_requires": [
+      "cycle_group_a"
+    ],
+    "cycle_group": "cycle_group_a",
+    "header_only_libs": [],
+    "lib_short_names": [
+      "python"
+    ],
+    "name": "python",
+    "source_only_deps": []
+  },
+  "qvm": {
+    "b2_requires": [
+      "assert",
+      "core",
+      "exception",
+      "static_assert",
+      "throw_exception"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "qvm"
+    ],
+    "lib_short_names": [
+      "qvm"
+    ],
+    "name": "qvm",
+    "source_only_deps": []
+  },
+  "random": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [],
+    "lib_short_names": [
+      "random"
+    ],
+    "name": "random",
+    "source_only_deps": []
+  },
+  "range": {
+    "b2_requires": [
+      "array",
+      "assert",
+      "concept_check",
+      "config",
+      "container_hash",
+      "core",
+      "detail",
+      "iterator",
+      "mpl",
+      "numeric_conversion",
+      "optional",
+      "preprocessor",
+      "regex",
+      "static_assert",
+      "tuple",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "range"
+    ],
+    "lib_short_names": [
+      "range"
+    ],
+    "name": "range",
+    "source_only_deps": []
+  },
+  "ratio": {
+    "b2_requires": [
+      "config",
+      "core",
+      "integer",
+      "mpl",
+      "rational",
+      "static_assert",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "ratio"
+    ],
+    "lib_short_names": [
+      "ratio"
+    ],
+    "name": "ratio",
+    "source_only_deps": []
+  },
+  "rational": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "integer",
+      "static_assert",
+      "throw_exception",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "rational"
+    ],
+    "lib_short_names": [
+      "rational"
+    ],
+    "name": "rational",
+    "source_only_deps": []
+  },
+  "regex": {
+    "b2_requires": [
+      "assert",
+      "concept_check",
+      "config",
+      "container_hash",
+      "core",
+      "integer",
+      "iterator",
+      "mpl",
+      "predef",
+      "smart_ptr",
+      "static_assert",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "regex"
+    ],
+    "name": "regex",
+    "source_only_deps": []
+  },
+  "safe_numerics": {
+    "b2_requires": [
+      "concept_check",
+      "config",
+      "core",
+      "integer",
+      "logic",
+      "mp11"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "safe_numerics"
+    ],
+    "lib_short_names": [
+      "safe_numerics"
+    ],
+    "name": "safe_numerics",
+    "source_only_deps": []
+  },
+  "scope_exit": {
+    "b2_requires": [
+      "config",
+      "function",
+      "preprocessor",
+      "type_traits",
+      "typeof"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "scope_exit"
+    ],
+    "lib_short_names": [
+      "scope_exit"
+    ],
+    "name": "scope_exit",
+    "source_only_deps": []
+  },
+  "serialization": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [],
+    "lib_short_names": [
+      "serialization"
+    ],
+    "name": "serialization",
+    "source_only_deps": []
+  },
+  "signals2": {
+    "b2_requires": [
+      "assert",
+      "bind",
+      "config",
+      "core",
+      "function",
+      "iterator",
+      "mpl",
+      "optional",
+      "parameter",
+      "predef",
+      "preprocessor",
+      "smart_ptr",
+      "throw_exception",
+      "tuple",
+      "type_traits",
+      "variant"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "signals2"
+    ],
+    "lib_short_names": [
+      "signals2"
+    ],
+    "name": "signals2",
+    "source_only_deps": []
+  },
+  "smart_ptr": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "move",
+      "predef",
+      "static_assert",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "smart_ptr"
+    ],
+    "lib_short_names": [
+      "smart_ptr"
+    ],
+    "name": "smart_ptr",
+    "source_only_deps": []
+  },
+  "sort": {
+    "b2_requires": [
+      "config",
+      "core",
+      "range",
+      "serialization",
+      "static_assert",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "sort"
+    ],
+    "lib_short_names": [
+      "sort"
+    ],
+    "name": "sort",
+    "source_only_deps": []
+  },
+  "spirit": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [
+      "spirit"
+    ],
+    "lib_short_names": [
+      "spirit"
+    ],
+    "name": "spirit",
+    "source_only_deps": []
+  },
+  "stacktrace": {
+    "b2_requires": [
+      "array",
+      "config",
+      "container_hash",
+      "core",
+      "predef",
+      "static_assert",
+      "type_traits",
+      "winapi"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "stacktrace"
+    ],
+    "name": "stacktrace",
+    "source_only_deps": []
+  },
+  "statechart": {
+    "b2_requires": [
+      "assert",
+      "bind",
+      "config",
+      "conversion",
+      "core",
+      "detail",
+      "function",
+      "mpl",
+      "smart_ptr",
+      "static_assert",
+      "thread",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "statechart"
+    ],
+    "lib_short_names": [
+      "statechart"
+    ],
+    "name": "statechart",
+    "source_only_deps": []
+  },
+  "static_assert": {
+    "b2_requires": [
+      "config"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "static_assert"
+    ],
+    "lib_short_names": [
+      "static_assert"
+    ],
+    "name": "static_assert",
+    "source_only_deps": []
+  },
+  "system": {
+    "b2_requires": [
+      "config",
+      "winapi"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "system"
+    ],
+    "name": "system",
+    "source_only_deps": []
+  },
+  "test": {
+    "b2_requires": [
+      "algorithm",
+      "assert",
+      "bind",
+      "config",
+      "core",
+      "detail",
+      "exception",
+      "function",
+      "io",
+      "iterator",
+      "mpl",
+      "numeric_conversion",
+      "optional",
+      "preprocessor",
+      "smart_ptr",
+      "static_assert",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "test"
+    ],
+    "name": "test",
+    "source_only_deps": []
+  },
+  "thread": {
+    "b2_requires": [
+      "cycle_group_b"
+    ],
+    "cycle_group": "cycle_group_b",
+    "header_only_libs": [],
+    "lib_short_names": [
+      "thread"
+    ],
+    "name": "thread",
+    "source_only_deps": []
+  },
+  "throw_exception": {
+    "b2_requires": [
+      "assert",
+      "config"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "throw_exception"
+    ],
+    "lib_short_names": [
+      "throw_exception"
+    ],
+    "name": "throw_exception",
+    "source_only_deps": []
+  },
+  "timer": {
+    "b2_requires": [
+      "chrono",
+      "config",
+      "core",
+      "system"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "timer"
+    ],
+    "name": "timer",
+    "source_only_deps": [
+      "io",
+      "predef",
+      "throw_exception"
+    ]
+  },
+  "tokenizer": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "iterator",
+      "mpl",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "tokenizer"
+    ],
+    "lib_short_names": [
+      "tokenizer"
+    ],
+    "name": "tokenizer",
+    "source_only_deps": []
+  },
+  "tti": {
+    "b2_requires": [
+      "config",
+      "function_types",
+      "mpl",
+      "preprocessor",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "tti"
+    ],
+    "lib_short_names": [
+      "tti"
+    ],
+    "name": "tti",
+    "source_only_deps": []
+  },
+  "tuple": {
+    "b2_requires": [
+      "config",
+      "core",
+      "static_assert",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "tuple"
+    ],
+    "lib_short_names": [
+      "tuple"
+    ],
+    "name": "tuple",
+    "source_only_deps": []
+  },
+  "type_erasure": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "fusion",
+      "iterator",
+      "mp11",
+      "mpl",
+      "preprocessor",
+      "smart_ptr",
+      "thread",
+      "throw_exception",
+      "type_traits",
+      "typeof",
+      "vmd"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "type_erasure"
+    ],
+    "name": "type_erasure",
+    "source_only_deps": []
+  },
+  "type_index": {
+    "b2_requires": [
+      "config",
+      "container_hash",
+      "core",
+      "preprocessor",
+      "smart_ptr",
+      "static_assert",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "type_index"
+    ],
+    "lib_short_names": [
+      "type_index"
+    ],
+    "name": "type_index",
+    "source_only_deps": []
+  },
+  "type_traits": {
+    "b2_requires": [
+      "config",
+      "static_assert"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "type_traits"
+    ],
+    "lib_short_names": [
+      "type_traits"
+    ],
+    "name": "type_traits",
+    "source_only_deps": []
+  },
+  "typeof": {
+    "b2_requires": [
+      "config",
+      "preprocessor",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "typeof"
+    ],
+    "lib_short_names": [
+      "typeof"
+    ],
+    "name": "typeof",
+    "source_only_deps": []
+  },
+  "units": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "core",
+      "integer",
+      "io",
+      "lambda",
+      "math",
+      "mpl",
+      "preprocessor",
+      "serialization",
+      "static_assert",
+      "type_traits",
+      "typeof"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "units"
+    ],
+    "lib_short_names": [
+      "units"
+    ],
+    "name": "units",
+    "source_only_deps": []
+  },
+  "unordered": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "container",
+      "container_hash",
+      "core",
+      "detail",
+      "move",
+      "predef",
+      "preprocessor",
+      "smart_ptr",
+      "throw_exception",
+      "tuple",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "unordered"
+    ],
+    "lib_short_names": [
+      "unordered"
+    ],
+    "name": "unordered",
+    "source_only_deps": []
+  },
+  "utility": {
+    "b2_requires": [
+      "config",
+      "container_hash",
+      "core",
+      "preprocessor",
+      "static_assert",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "utility"
+    ],
+    "lib_short_names": [
+      "utility"
+    ],
+    "name": "utility",
+    "source_only_deps": []
+  },
+  "uuid": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "container_hash",
+      "core",
+      "io",
+      "move",
+      "numeric_conversion",
+      "predef",
+      "random",
+      "serialization",
+      "static_assert",
+      "throw_exception",
+      "tti",
+      "type_traits",
+      "winapi"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "uuid"
+    ],
+    "lib_short_names": [
+      "uuid"
+    ],
+    "name": "uuid",
+    "source_only_deps": []
+  },
+  "variant": {
+    "b2_requires": [
+      "assert",
+      "bind",
+      "config",
+      "container_hash",
+      "core",
+      "detail",
+      "integer",
+      "move",
+      "mpl",
+      "preprocessor",
+      "static_assert",
+      "throw_exception",
+      "type_index",
+      "type_traits",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "variant"
+    ],
+    "lib_short_names": [
+      "variant"
+    ],
+    "name": "variant",
+    "source_only_deps": []
+  },
+  "variant2": {
+    "b2_requires": [
+      "config",
+      "mp11"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "variant2"
+    ],
+    "lib_short_names": [
+      "variant2"
+    ],
+    "name": "variant2",
+    "source_only_deps": []
+  },
+  "vmd": {
+    "b2_requires": [
+      "preprocessor"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "vmd"
+    ],
+    "lib_short_names": [
+      "vmd"
+    ],
+    "name": "vmd",
+    "source_only_deps": []
+  },
+  "wave": {
+    "b2_requires": [
+      "assert",
+      "concept_check",
+      "config",
+      "core",
+      "filesystem",
+      "iterator",
+      "lexical_cast",
+      "mpl",
+      "multi_index",
+      "pool",
+      "preprocessor",
+      "serialization",
+      "smart_ptr",
+      "spirit",
+      "static_assert",
+      "throw_exception",
+      "type_traits"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [],
+    "lib_short_names": [
+      "wave"
+    ],
+    "name": "wave",
+    "source_only_deps": []
+  },
+  "winapi": {
+    "b2_requires": [
+      "config",
+      "predef"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "winapi"
+    ],
+    "lib_short_names": [
+      "winapi"
+    ],
+    "name": "winapi",
+    "source_only_deps": []
+  },
+  "xpressive": {
+    "b2_requires": [
+      "assert",
+      "config",
+      "conversion",
+      "core",
+      "exception",
+      "fusion",
+      "integer",
+      "iterator",
+      "lexical_cast",
+      "mpl",
+      "numeric_conversion",
+      "optional",
+      "preprocessor",
+      "proto",
+      "range",
+      "smart_ptr",
+      "static_assert",
+      "throw_exception",
+      "type_traits",
+      "typeof",
+      "utility"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "xpressive"
+    ],
+    "lib_short_names": [
+      "xpressive"
+    ],
+    "name": "xpressive",
+    "source_only_deps": []
+  },
+  "yap": {
+    "b2_requires": [
+      "hana",
+      "preprocessor",
+      "type_index"
+    ],
+    "cycle_group": null,
+    "header_only_libs": [
+      "yap"
+    ],
+    "lib_short_names": [
+      "yap"
+    ],
+    "name": "yap",
+    "source_only_deps": []
+  }
+}
