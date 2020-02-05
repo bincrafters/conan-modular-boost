@@ -12,6 +12,6 @@ jobs:
     conanPassword: $(CONAN_PASSWORD)
     collectionsBasePath: "recipes"
     collectionsRecipes:
-      - name: "boost_callable_traits"
-      - name: "boost_compatibility"
-      - name: "boost_config"
+      - name: "boost_callable_traits\all"
+      - name: "boost_compatibility\all"
+      - name: "boost_config\all"
