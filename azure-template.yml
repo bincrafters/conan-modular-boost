@@ -171,6 +171,6 @@ jobs:
                 CONAN_RECIPE_DIRECTORY: ${{ join(parameters.collectionsBasePath, recipe.name) }}
             ${{ if contains(parameters.vsVersions, 16) }}:
               VS 2019 ${{ recipe.name }}:
-              AZP_BUILD_WORKER_IMAGE: windows-2019
-              CONAN_VISUAL_VERSIONS: 16
-              CONAN_RECIPE_DIRECTORY: ${{ join(parameters.collectionsBasePath, recipe.name) }}
+                AZP_BUILD_WORKER_IMAGE: windows-2019
+                CONAN_VISUAL_VERSIONS: 16
+                CONAN_RECIPE_DIRECTORY: ${{ join(parameters.collectionsBasePath, recipe.name) }}
