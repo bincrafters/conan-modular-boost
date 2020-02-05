@@ -28,8 +28,6 @@ class BoostBaseConan(ConanFile):
     name = "boost_base"
     description = "Shared python code used in other Conan recipes for the" + \
         "Boost libraries"
-    exports_sources = [
-        "LICENSE.md"]
     # We export some source files that are used during building each library.
     exports = [
         # These contain general package information, like dependencies, for
@@ -46,7 +44,6 @@ class BoostBaseConan(ConanFile):
     homepage = "https://boost.org/"
     url = "https://github.com/conan-io/conan-center-index"
     license = "MIT"
-    author = "Bincrafters <bincrafters@gmail.com>"
 
     # Private definitions for operation of recipe.
 

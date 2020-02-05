@@ -1,58 +1,20 @@
-trigger:
-  branches:
-    include:
-      - boost
+resources:
+  repositories:
+    - repository: templates
+      type: github
+      name: bincrafters/templates
+      endpoint: github
 
-variables:
-  PYVER: 3.7
-  PYEXE: /usr/bin/python3.7m
-  CONAN_USERNAME: bincrafters
-  CONAN_CHANNEL: testing
-  CONAN_UPLOAD_DEPENDENCIES: all
-  CONAN_BUILD_POLICY: missing
-  CONAN_REMOTES: https://api.bintray.com/conan/bincrafters/public-conan@bincrafters
-  BOOST_VERSION: 1.71.0
-  BOOST_BASE_VERSION: 2.1.0
-
-stages:
-- stage: Build
-  jobs:
-  - job: 'Linux'
-    pool:
-      vmImage: 'ubuntu-16.04'
-    strategy:
-      matrix:
-        GCC 9:
-          CONAN_DOCKER_IMAGE: conanio/clang9
-          CONAN_CLANG_VERSIONS: 9
-          CONAN_ARCHS: x86_64
-          CONAN_BUILD_TYPES: Release
-          CONAN_CPPSTDS: 11
-    steps:
-    - bash: |
-        set -e
-        uname -a
-        sudo apt-get update
-        sudo apt-get install software-properties-common apt-file
-      displayName: 'Install: APT'
-    - bash: |
-        set -e
-        uname -a
-        sudo apt-add-repository -y "ppa:deadsnakes/ppa"
-        sudo apt-get update
-        sudo apt-get install python${PYVER}
-        sudo apt-get install python${PYVER}-dev
-        curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-        sudo ${PYEXE} get-pip.py
-      displayName: 'Install: Python'
-    - bash: |
-        set -e
-        sudo pip${PYVER} install --upgrade pip
-        pip install --upgrade https://github.com/grafikrobot/boost_lib_stats/archive/master.zip
-        pip install --upgrade conan_package_tools
-        pip install --upgrade conan
-      displayName: 'Install: PIP'
-    - bash: |
-        set -e
-        ${PYEXE} ./recipes/boost_base/all/src/script/build_all.py ++version=${BOOST_VERSION} ++base-version=${BOOST_BASE_VERSION}
-      displayName: 'Build'
+jobs:
+- template: azure-template.yml
+  parameters:
+    conanLoginUsername: $(CONAN_LOGIN_USERNAME)
+    conanPassword: $(CONAN_PASSWORD)
+    collectionsBasePath: "recipes"
+    conanUploadOnlyWhenStable: "false"
+    # collectionsConanfileBasePath: 'recipes\boost_base\'
+    collectionsRecipes:
+      - name: 'boost_base\all'
+      - name: 'boost_callable_traits\all'
+      - name: 'boost_compatibility\all'
+      - name: 'boost_config\all'
