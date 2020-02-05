@@ -10,6 +10,7 @@ jobs:
   parameters:
     conanLoginUsername: $(CONAN_LOGIN_USERNAME)
     conanPassword: $(CONAN_PASSWORD)
+    splitByBuildTypes: "true"
     collectionsBasePath: "recipes/"
     collectionsRecipes:
       - name: "boost_callable_traits"
