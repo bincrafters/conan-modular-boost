@@ -9,8 +9,17 @@ parameters:
   collectionsBasePath: "."
   collectionsRecipes:  # A list of recipes names
     - name: ""
-  # !! IF YOU OVERRIDE THE FOLLOWING VALUES YOU ARE PROBALBY DOING SOMETHING WRONG !!
-
+  # !!! IF YOU OVERRIDE THE FOLLOWING VALUES YOU ARE PROBABLY DOING SOMETHING WRONG !!!
+  vsVersionsMapping:
+    - version: 14
+      name: 2015
+      image: vs2015-win2012r2
+    - version: 15
+      name: 2017
+      image: vs2017-win2016
+    - version: 16
+      name: 2019
+      image: windows-2019
 
 jobs:
 - ${{ if ne(parameters.appleClangVersions, '') }}:
@@ -128,52 +137,22 @@ jobs:
       matrix:
         ${{ each recipe in parameters.collectionsRecipes }}:
           ${{ if eq(parameters.splitByBuildTypes, 'true') }}:
-            ${{ if contains(parameters.vsVersions, 14) }}:
-              VS 2015 Release ${{ recipe.name }}:
-                AZP_BUILD_WORKER_IMAGE: vs2015-win2012r2
-                CONAN_VISUAL_VERSIONS: 14
-                CONAN_BUILD_TYPES: Release
-                CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
-              VS 2015 Debug ${{ recipe.name }}:
-                AZP_BUILD_WORKER_IMAGE: vs2015-win2012r2
-                CONAN_VISUAL_VERSIONS: 14
-                CONAN_BUILD_TYPES: Debug
-                CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
-            ${{ if contains(parameters.vsVersions, 15) }}:
-              VS 2017 Release ${{ recipe.name }}:
-                AZP_BUILD_WORKER_IMAGE: vs2017-win2016
-                CONAN_VISUAL_VERSIONS: 15
-                CONAN_BUILD_TYPES: Release
-                CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
-              VS 2017 Debug ${{ recipe.name }}:
-                AZP_BUILD_WORKER_IMAGE: vs2017-win2016
-                CONAN_VISUAL_VERSIONS: 15
-                CONAN_BUILD_TYPES: Debug
-                CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
-            ${{ if contains(parameters.vsVersions, 16) }}:
-              VS 2019 Release ${{ recipe.name }}:
-                AZP_BUILD_WORKER_IMAGE: windows-2019
-                CONAN_VISUAL_VERSIONS: 16
-                CONAN_BUILD_TYPES: Release
-                CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
-              VS 2019 Debug ${{ recipe.name }}:
-                AZP_BUILD_WORKER_IMAGE: windows-2019
-                CONAN_VISUAL_VERSIONS: 16
-                CONAN_BUILD_TYPES: Debug
-                CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
+            ${{ each vs in parameters.vsVersionsMapping }}:
+              ${{ if contains(parameters.vsVersions, vs.version) }}:
+                VS ${{ vs.name }} Release ${{ recipe.name }}:
+                  AZP_BUILD_WORKER_IMAGE: ${{ vs.image }}
+                  CONAN_VISUAL_VERSIONS: ${{ vs.name }}
+                  CONAN_BUILD_TYPES: Release
+                  CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
+                VS ${{ vs.name }} Debug ${{ recipe.name }}:
+                  AZP_BUILD_WORKER_IMAGE: ${{ vs.image }}
+                  CONAN_VISUAL_VERSIONS: ${{ vs.name }}
+                  CONAN_BUILD_TYPES: Debug
+                  CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
           ${{ if ne(parameters.splitByBuildTypes, 'true') }}:
-            ${{ if contains(parameters.vsVersions, 14) }}:
-              VS 2015 ${{ recipe.name }}:
-                AZP_BUILD_WORKER_IMAGE: vs2015-win2012r2
-                CONAN_VISUAL_VERSIONS: 14
-                CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
-            ${{ if contains(parameters.vsVersions, 15) }}:
-              VS 2017 ${{ recipe.name }}:
-                AZP_BUILD_WORKER_IMAGE: vs2017-win2016
-                CONAN_VISUAL_VERSIONS: 15
-                CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
-            ${{ if contains(parameters.vsVersions, 16) }}:
-              VS 2019 ${{ recipe.name }}:
-                AZP_BUILD_WORKER_IMAGE: windows-2019
-                CONAN_VISUAL_VERSIONS: 16
-                CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
+            ${{ each vs in parameters.vsVersionsMapping }}:
+              ${{ if contains(parameters.vsVersions, vs.version) }}:
+                VS ${{ vs.name }} ${{ recipe.name }}:
+                  AZP_BUILD_WORKER_IMAGE: ${{ vs.image }}
+                  CONAN_VISUAL_VERSIONS: ${{ vs.name }}
+                  CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
