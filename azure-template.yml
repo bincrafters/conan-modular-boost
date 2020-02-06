@@ -167,7 +167,11 @@ stages:
             }
             $rootDir = $pwd.path
             cd $env:CONAN_RECIPE_DIRECTORY
+            if ($env:RECIPE_BUILD_TYPE -eq 'header_only') {
+              python ('{0}\build_header_only.py' -f $rootDir)
+            } else {
             python ('{0}\build.py' -f $rootDir)
+            }
           env:
             CONAN_LOGIN_USERNAME: ${{ parameters.conanLoginUsername }}
             CONAN_PASSWORD: ${{ parameters.conanPassword }}
@@ -180,8 +184,8 @@ stages:
                 ${{ if eq(recipe.type, 'header_only') }}:
                   VS 2019 ${{ recipe.name }}:
                     AZP_BUILD_WORKER_IMAGE: windows-2019
+                    RECIPE_BUILD_TYPE: header_only
                     CONAN_VISUAL_VERSIONS: 16
-                    CONAN_BUILD_TYPES: Release
                     CONAN_RECIPE_DIRECTORY: ${{ format('{0}\{1}', parameters.collectionsBasePath, recipe.name) }}
                 ${{ if ne(recipe.type, 'header_only') }}:
                   ${{ if eq(parameters.splitByBuildTypes, 'true') }}:
