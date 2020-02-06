@@ -5,16 +5,54 @@ resources:
       name: bincrafters/templates
       endpoint: github
 
-jobs:
-- template: azure-template.yml
+extends:
+  template: azure-template.yml
   parameters:
     conanLoginUsername: $(CONAN_LOGIN_USERNAME)
     conanPassword: $(CONAN_PASSWORD)
     collectionsBasePath: "recipes"
     conanUploadOnlyWhenStable: "false"
-    # collectionsConanfileBasePath: 'recipes\boost_base\'
+    # TODO: We still need a custom logic for uploading python_requires, extend bincrafters-package-tools or cpt?
+    collectionsProvideAsPythonRequires:
+      path: 'recipes\boost_base\all'
+      reference: 'boost_base/2.1.0@bincrafters/testing'
+    collectionsStages:
+      - "G1"
+      - "G2"
     collectionsRecipes:
-      - name: 'boost_base\all'
-      - name: 'boost_callable_traits\all'
       - name: 'boost_compatibility\all'
+        stage: 'G1'
+        type: 'header_only'
       - name: 'boost_config\all'
+        stage: 'G1'
+        type: 'header_only'
+      - name: 'boost_callable_traits\all'
+        stage: 'G1'
+        type: 'header_only'
+      - name: 'boost_hof\all'
+        stage: 'G1'
+        type: 'header_only'
+      - name: 'boost_predef\all'
+        stage: 'G1'
+        type: 'header_only'
+      - name: 'boost_preprocessor\all'
+        stage: 'G1'
+        type: 'header_only'
+      - name: 'boost_mp11\all'
+        stage: 'G1'
+        type: 'header_only'
+      - name: 'boost_winapi\all'
+        stage: 'G2'
+        type: 'header_only'
+      - name: 'boost_variant2\all'
+        stage: 'G2'
+        type: 'header_only'
+      - name: 'boost_io\all'
+        stage: 'G2'
+        type: 'header_only'
+      - name: 'boost_assert\all'
+        stage: 'G2'
+        type: 'header_only'
+      - name: 'boost_polygon\all'
+        stage: 'G2'
+        type: 'header_only'
